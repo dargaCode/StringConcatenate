@@ -9,7 +9,7 @@ int main(void)
 {
     char input_a[256];
     char input_b[256];
-    
+
     printf("Enter String 1: ");
     scanf("%s", input_a);
     printf("Enter String 2: ");
@@ -19,8 +19,9 @@ int main(void)
     char * result = concatenate(input_a, input_b);
 
     printf("%s len: %i\n", result, get_str_len(result));
-    
+
     printf("Result: %s\n", result);
+    // free memory from concatenate function
     free(result);
 
     // success
@@ -42,10 +43,10 @@ char * concatenate(char * str_a, char * str_b)
     int len_a = get_str_len(str_a);
     int len_b = get_str_len(str_b);
     int new_len = len_a + len_b;
-    
+
     char * result = malloc((new_len + 1) * sizeof(result));
     printf("new len %i \n", new_len);
-    
+
     // store first string
     for (int i = 0; i < len_a; i++)
     {
@@ -57,6 +58,6 @@ char * concatenate(char * str_a, char * str_b)
         *(result + len_a + i) = *(str_b + i);
     }
     result[new_len] = '\0';
-    
+
     return result;
 }
