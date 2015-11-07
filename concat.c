@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // function prototypes
 int get_str_len(char *);
@@ -13,9 +14,14 @@ int main(void)
     scanf("%s", input_a);
     printf("Enter String 2: ");
     scanf("%s", input_b);
-    printf("Concatenate strings %s and %s\n", input_a, input_b);
+    printf("Concatenate \"%s\" and \"%s\":\n", input_a, input_b);
 
-    printf("%s len: %i\n", input_a, get_str_len(input_a));
+    char * result = concatenate(input_a, input_b);
+
+    printf("%s len: %i\n", result, get_str_len(result));
+    
+    printf("Result: %s\n", result);
+    free(result);
 
     // success
     return 0;
@@ -33,5 +39,24 @@ int get_str_len(char * str)
 
 char * concatenate(char * str_a, char * str_b)
 {
-    return str_a;
+    int len_a = get_str_len(str_a);
+    int len_b = get_str_len(str_b);
+    int new_len = len_a + len_b;
+    
+    char * result = malloc((new_len + 1) * sizeof(result));
+    printf("new len %i \n", new_len);
+    
+    // store first string
+    for (int i = 0; i < len_a; i++)
+    {
+        *(result + i) = *(str_a + i);
+    }
+    // store second string
+    for (int i = 0; i < len_b; i++)
+    {
+        *(result + len_a + i) = *(str_b + i);
+    }
+    result[new_len] = '\0';
+    
+    return result;
 }
