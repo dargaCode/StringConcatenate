@@ -15,7 +15,7 @@ int main(void)
     scanf("%s", input_b);
     printf("Concatenate strings %s and %s\n", input_a, input_b);
 
-    
+    printf("%s len: %i\n", input_a, get_str_len(input_a));
 
     // success
     return 0;
@@ -23,7 +23,12 @@ int main(void)
 
 int get_str_len(char * str)
 {
-    return 0;
+    int len = 0;
+    while (*(str + len) != '\0')
+    {
+        len++;
+    }
+    return len;
 }
 
 char * concatenate(char * str_a, char * str_b)
