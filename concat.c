@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <cs50.h>
 
 // function prototypes
 int get_str_len(char *);
@@ -7,13 +8,10 @@ char * concatenate(char *, char *);
 
 int main(void)
 {
-    char input_a[256];
-    char input_b[256];
-
     printf("\nEnter String 1: ");
-    scanf("%s", input_a);
+    char * input_a = GetString();
     printf("Enter String 2: ");
-    scanf("%s", input_b);
+    char * input_b = GetString();
     printf("\nConcatenate \"%s\" and \"%s\":\n", input_a, input_b);
 
     char * result = concatenate(input_a, input_b);
