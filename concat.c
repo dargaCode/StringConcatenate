@@ -13,6 +13,7 @@ char * concatenate(const char * str_a, const char * str_b)
     //failure
     if (result == NULL)
     {
+        printf("Memory allocation failure!\nExiting program.\n\n");
         exit(-1);
     }
 
