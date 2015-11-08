@@ -9,7 +9,7 @@ char * concatenate(char * str_a, char * str_b)
     int len_b = strlen(str_b);
     int new_len = len_a + len_b;
 
-    char * result = malloc((new_len + 1) * sizeof(*result));
+    char * result = calloc(len_a + len_b + 1,sizeof(*result));
 
     //failure
     if (result == NULL)
