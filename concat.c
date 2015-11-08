@@ -7,7 +7,6 @@ char * concatenate(char * str_a, char * str_b)
 {
     int len_a = strlen(str_a);
     int len_b = strlen(str_b);
-    int new_len = len_a + len_b;
 
     char * result = calloc(len_a + len_b + 1,sizeof(*result));
 
@@ -18,16 +17,10 @@ char * concatenate(char * str_a, char * str_b)
     }
 
     // store first string
-    for (int i = 0; i < len_a; i++)
-    {
-        *(result + i) = *(str_a + i);
-    }
+    strcpy(result, str_a);
+
     // store second string
-    for (int i = 0; i < len_b; i++)
-    {
-        *(result + len_a + i) = *(str_b + i);
-    }
-    result[new_len] = '\0';
+    strcat(result, str_b);
 
     return result;
 }
