@@ -3,7 +3,7 @@
 #include <string.h>
 #include <cs50.h>
 
-char * concatenate(char * str_a, char * str_b)
+char * concatenate(const char * str_a, const char * str_b)
 {
     int len_a = strlen(str_a);
     int len_b = strlen(str_b);
@@ -28,9 +28,9 @@ char * concatenate(char * str_a, char * str_b)
 int main(void)
 {
     printf("\nEnter String 1: ");
-    char * input_a = GetString();
+    const char * input_a = GetString();
     printf("Enter String 2: ");
-    char * input_b = GetString();
+    const char * input_b = GetString();
     printf("\nConcatenate \"%s\" and \"%s\":\n", input_a, input_b);
 
     char * result = concatenate(input_a, input_b);
