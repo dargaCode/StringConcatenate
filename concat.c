@@ -46,6 +46,12 @@ char * concatenate(char * str_a, char * str_b)
 
     char * result = malloc((new_len + 1) * sizeof(*result));
 
+    //failure
+    if (result == NULL)
+    {
+        exit(-1);
+    }
+
     // store first string
     for (int i = 0; i < len_a; i++)
     {
