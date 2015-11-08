@@ -44,7 +44,7 @@ char * concatenate(char * str_a, char * str_b)
     int len_b = get_str_len(str_b);
     int new_len = len_a + len_b;
 
-    char * result = malloc((new_len + 1) * sizeof(result));
+    char * result = malloc((new_len + 1) * sizeof(*result));
 
     // store first string
     for (int i = 0; i < len_a; i++)
