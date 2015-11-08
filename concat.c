@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <cs50.h>
 
-// function prototypes
-int get_str_len(char *);
 char * concatenate(char *, char *);
 
 int main(void)
@@ -17,7 +16,7 @@ int main(void)
     char * result = concatenate(input_a, input_b);
 
     printf("    Result: %s\n", result);
-    printf("    Length: %i\n\n", get_str_len(result));
+    printf("    Length: %i\n\n", strlen(result));
 
     // free memory from concatenate function
     free(result);
@@ -26,20 +25,10 @@ int main(void)
     return 0;
 }
 
-int get_str_len(char * str)
-{
-    int len = 0;
-    while (*(str + len) != '\0')
-    {
-        len++;
-    }
-    return len;
-}
-
 char * concatenate(char * str_a, char * str_b)
 {
-    int len_a = get_str_len(str_a);
-    int len_b = get_str_len(str_b);
+    int len_a = strlen(str_a);
+    int len_b = strlen(str_b);
     int new_len = len_a + len_b;
 
     char * result = malloc((new_len + 1) * sizeof(*result));
